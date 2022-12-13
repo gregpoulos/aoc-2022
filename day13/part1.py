@@ -21,11 +21,6 @@ def compare_lists(l1, l2):
     return compare_ints(len(l1), len(l2))
 
 ps = [literal_eval(line) for line in open('input.txt', 'r').readlines() if line != '\n']
-# d1 = [[2]]
-# d2 = [[6]]
-# ps.append(d1)
-# ps.append(d2)
-
 out = 0
 for i in range(len(ps)//2):
   if compare_lists(ps[2*i], ps[2*i+1]) > 0:
