@@ -24,17 +24,12 @@ def compare_lists(l1, l2):
 def compare_packets(p1, p2):
   return compare_lists(p1, p2)*-1
 
+d1, d2, d1i, d2i = [[2]], [[6]], 0, 0
 ps = [literal_eval(line) for line in open('input.txt', 'r').readlines() if line != '\n']
-d1 = [[2]]
-d2 = [[6]]
 ps.append(d1)
 ps.append(d2)
 
-i = 0
-d1i = 0
-d2i = 0
-for p in sorted(ps, key=cmp_to_key(compare_packets)):
-  i += 1
+for i, p in zip(range(1, len(ps)+1), sorted(ps, key=cmp_to_key(compare_packets))):
   if p == d1: d1i = i
   if p == d2: d2i = i
 print(d1i*d2i)
