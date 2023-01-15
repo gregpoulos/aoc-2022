@@ -33,15 +33,6 @@ def snafu_sum(x, y):
   if carry != 0: result.append(value_to_char(carry))
   return ''.join(reversed(result))
 
-def snafu_to_dec(snafu):
-  dec = 0
-  for n, d in enumerate(reversed(snafu)):
-    place = 5 ** n
-    if d == '-': dec -= place
-    elif d == '=': dec -= 2 * place
-    else: dec += int(d) * place
-  return dec
-
 val = '0'
 for line in open(fn, 'r').readlines():
   val = snafu_sum(val, line.strip())
